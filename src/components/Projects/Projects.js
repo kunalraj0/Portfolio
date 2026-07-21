@@ -2,9 +2,11 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import pomega from  "../../Assets/Projects/ProjectOmega.png";
+import pomega from "../../Assets/Projects/ProjectOmega.png";
 import chatify from "../../Assets/Projects/chatify.png";
 import globaloutbreak from "../../Assets/Projects/Screenshot (130).png";
+import blogImg from "../../Assets/Projects/blog.png";
+import placeholderImg from "../../Assets/Projects/project-placeholder.svg";
 
 function Projects() {
   return (
@@ -12,68 +14,86 @@ function Projects() {
       <Particle />
       <Container>
         <h1 className="project-heading">
-          My Recent <strong className="purple">Works </strong>
+          My Recent <strong className="purple">Works</strong>
         </h1>
-        <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
+        <p className="project-intro">
+          Here are a few highlighted projects from my experience in app development, game design, and XR/AR innovation.
         </p>
 
-        {/* Projects Section */}
-        <h2 className="project-subheading" style={{ color: "white" }}>Projects</h2>
+        <h2 className="project-subheading">Projects</h2>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={placeholderImg}
+              isBlog={false}
+              title="Surveillance Drone"
+              description="Associated with University of Mumbai. Designed the overall drone architecture including frame, propulsion, and power supply. Programmed the flight controller using Arduino and integrated GPS, camera, and telemetry for live mission feedback. Developed ground control station software for real-time monitoring and remote operation. Implemented autonomous waypoint navigation, object tracking, and live video streaming while collaborating with team members to optimize reliability and safety."
+              githubDisabled={true}
+            />
+          </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={chatify}
               isBlog={false}
               title="CareTrack"
-              description="Will Update Soon.."
+              description="A health tracking and workflow management dashboard built to improve patient care coordination."
               ghLink="https://github.com/kunalraj0/CareTrack"
             />
           </Col>
-          {/* Add more projects in this section if needed */}
         </Row>
 
-        {/* Game Projects Section */}
-        <h2 className="project-subheading" style={{ color: "white" }}>Game Projects</h2>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px"}}>
+        <h2 className="project-subheading">Game Projects</h2>
+        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={pomega}
               isBlog={false}
               title="Project Omega"
-              description=" Designed and implemented engaging puzzle mechanics that challenged players to think creatively and strategically in VR."
+              description="Designed and implemented engaging puzzle mechanics that challenged players to think creatively and strategically in VR."
               demoLink="https://youtu.be/pX6Z9RqO-FE"
-              githubDisabled={true} // Disables the GitHub button
+              githubDisabled={true}
             />
           </Col>
-          {/* Add more projects in this section if needed */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={globaloutbreak}
               isBlog={false}
               title="Global Outbreak"
-              description="As the lead game designer on this project, I spearheaded the development of a thrilling zombie-themed multiplayer shooter game built using Unreal Engine. The game pits players against hordes of relentless undead in a fight for survival, where teamwork and strategic thinking are essential to emerging victorious."
+              description="Led development of a zombie-themed multiplayer shooter in Unreal Engine focused on team-based survival gameplay."
               demoLink="https://youtu.be/Tsb8GgV5zhM"
-              githubDisabled={true} // Disables the GitHub button
+              githubDisabled={true}
             />
           </Col>
         </Row>
 
-        {/* AR Effects Section */}
-        <h2 className="project-subheading" style={{ color: "white" }}>AR Effects</h2>
+        <h2 className="project-subheading">AR Effects</h2>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={null} // No thumbnail for now
+              imgPath={placeholderImg}
               isBlog={false}
               title="Goblin Effect"
+              description="Created an AR effect with immersive visuals and character interactions for live camera experiences."
               demoLink="https://youtube.com/effect/689b89f1-0000-21d9-8620-3c286d3434f6"
               githubDisabled={true}
             />
           </Col>
-          {/* Add more projects in this section if needed */}
         </Row>
 
+        <h2 className="project-subheading">Publications</h2>
+        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={blogImg}
+              isBlog={false}
+              title="Hydrophobia: An Intense Fear of Water"
+              description="A chapter on VR exposure therapy for hydrophobia, exploring virtual reality exposure therapy (VRET) mechanisms, benefits, patient experience, and future research directions."
+              demoLink="https://www.igi-global.com/gateway/chapter/339320"
+              actionLabel="Publication"
+              githubDisabled={true}
+            />
+          </Col>
+        </Row>
       </Container>
     </Container>
   );

@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
@@ -27,6 +28,12 @@ function Home() {
 
               <div style={{ padding: 50, textAlign: "left" }}>
                 <Type />
+                <p className="home-subtitle">
+                  I build immersive games, XR experiences, and scalable applications with polished visuals and a strong focus on performance.
+                </p>
+                <Button as={Link} to="/project" className="home-cta btn-glow">
+                  See My Work
+                </Button>
               </div>
             </Col>
 

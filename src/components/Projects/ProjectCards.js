@@ -7,10 +7,17 @@ import { BsGithub } from "react-icons/bs";
 function ProjectCards(props) {
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
+      {props.imgPath && (
+        <Card.Img
+          variant="top"
+          src={props.imgPath}
+          alt="card-img"
+          className="project-card-img"
+        />
+      )}
+      <Card.Body className="project-card-body">
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
+        <Card.Text className="project-card-text">
           {props.description}
         </Card.Text>
         {!props.githubDisabled ? ( // Render the GitHub button only if githubDisabled is false
@@ -31,7 +38,7 @@ function ProjectCards(props) {
             style={{ marginLeft: "10px" }}
           >
             <CgWebsite /> &nbsp;
-            {"Demo"}
+            {props.actionLabel ? props.actionLabel : "Demo"}
           </Button>
         )}
       </Card.Body>

@@ -24,7 +24,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://github.com/kunalraj0"
-                style={{ color: "white" }}
+                className="footer-icon-link"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -34,7 +34,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://twitter.com/kunalraj_0"
-                style={{ color: "white" }}
+                className="footer-icon-link"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -44,7 +44,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.linkedin.com/in/kunalrajsingh/"
-                style={{ color: "white" }}
+                className="footer-icon-link"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -54,7 +54,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.instagram.com/kunalraj_0"
-                style={{ color: "white" }}
+                className="footer-icon-link"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
