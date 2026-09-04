@@ -22,7 +22,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
@@ -31,7 +32,8 @@
     "jsdom": "^25.0.1",
     "typescript": "^4.9.5",
     "vite": "^6.3.5",
-    "vitest": "^3.2.7"
+    "vitest": "^3.2.7",
+    "wrangler": "^4.129.0"
   },
   "browserslist": {
     "production": [
