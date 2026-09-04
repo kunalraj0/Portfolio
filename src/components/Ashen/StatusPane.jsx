@@ -4,7 +4,7 @@ import { CgCPlusPlus } from "react-icons/cg";
 import { DiJavascript1, DiReact, DiNodejs, DiMongodb, DiPython, DiGit } from "react-icons/di";
 import { SiPytorch, SiFirebase, SiNextdotjs, SiLinux, SiVisualstudiocode, SiPostman, SiHeroku, SiVercel } from "react-icons/si";
 import { GitHubCalendar } from "react-github-calendar";
-import avatar from "../../Assets/avatar.png";
+import avatar from "../../Assets/avatar-2.jpg";
 
 const LOADOUT = [
   { icon: <CgCPlusPlus />, label: "C++" },
