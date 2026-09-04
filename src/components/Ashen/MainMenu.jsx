@@ -1,6 +1,5 @@
 import React from "react";
 import forestBg from "../../Assets/ruin-forest.jpg";
-import logo from "../../Assets/logo.png";
 
 function MainMenu({ onOpen }) {
   return (
@@ -33,7 +32,7 @@ function MainMenu({ onOpen }) {
       <div className="mm-center">
         <div className="mm-title">
           <div className="sigil">
-            <img src={logo} alt="" />
+            <span>KS</span>
           </div>
           <h1>KUNALRAJ SINGH</h1>
           <p className="role">Associate XR Developer — Parallax Labs</p>
