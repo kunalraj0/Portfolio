@@ -1,5 +1,4 @@
 import React from "react";
-import placeholderImg from "../../Assets/Projects/project-placeholder.svg";
 import chatify from "../../Assets/Projects/chatify.png";
 import globalOutbreak from "../../Assets/Projects/Screenshot (130).png";
 import pomega from "../../Assets/Projects/ProjectOmega.png";
@@ -8,7 +7,7 @@ import blogImg from "../../Assets/Projects/blog.png";
 const PROJECTS = [
   {
     mood: "#8a9aa8",
-    img: placeholderImg,
+    img: null,
     label: "CONCEPT — FIELD UNIT",
     type: "Right Hand — Field Instrument",
     title: "Surveillance Drone",
@@ -82,7 +81,7 @@ const PROJECTS = [
   },
   {
     mood: "#6d5f86",
-    img: placeholderImg,
+    img: null,
     label: "CONCEPT — ILLUSION",
     type: "Sorcery — Illusion",
     title: "Social AR Canvas",
@@ -102,7 +101,12 @@ function EquipmentPane() {
         <div
           className="slot frame"
           key={p.title}
-          style={{ "--mood": p.mood, "--slot-img": `url(${p.img})` }}
+          style={{
+            "--mood": p.mood,
+            "--slot-img": p.img
+              ? `url(${p.img})`
+              : `radial-gradient(120% 100% at 80% 0%, ${p.mood}, transparent 65%)`,
+          }}
         >
           <span className="plate-label">{p.label}</span>
           <div className="slot-top">
