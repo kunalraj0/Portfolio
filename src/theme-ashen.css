@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Ashen theme — Dark-Souls-menu-inspired reskin.
+   This file only overrides colors/typography/surfaces on the site's
+   EXISTING classnames; no markup or content was removed anywhere.
+   Loaded last so its rules win the cascade against style.css/App.css.
+   ========================================================================== */
+
+:root {
+  --ash-0: #0a0806;
+  --ash-1: #15110b;
+  --ash-2: #1c150d;
+  --bone: #d9cdb1;
+  --bone-dim: rgba(217, 205, 177, 0.72);
+  --bone-faint: rgba(217, 205, 177, 0.42);
+  --gold: #a8813d;
+  --gold-bright: #e6bd72;
+  --ember: #d1571f;
+  --line: rgba(168, 129, 61, 0.35);
+
+  /* re-point the two gradient variables the rest of style.css already uses */
+  --section-background-color: linear-gradient(to bottom left, rgba(10, 8, 6, 0.86), rgba(6, 5, 4, 0.95));
+  --image-gradient: linear-gradient(to bottom left, rgba(10, 8, 6, 0.82), rgba(6, 5, 4, 0.92));
+  --imp-text-color: var(--gold-bright);
+}
+
+body {
+  font-family: "EB Garamond", Georgia, serif !important;
+  background-color: var(--ash-0) !important;
+  background-image: none !important;
+  color: var(--bone) !important;
+}
+
+h1, h2, h3, h4, .heading, .heading-name, .project-heading, .project-subheading,
+.resume .resume-title, .footer h3 {
+  font-family: "Cinzel", serif !important;
+}
+
+.purple { color: var(--gold-bright) !important; }
+
+::-webkit-scrollbar-track { background: var(--ash-1) !important; }
+::-webkit-scrollbar-thumb { background: var(--gold) !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-bright) !important; }
+
+#preloader { background-color: var(--ash-0) !important; }
+
+/* ---------- ambience layer (vignette / grain / embers) ---------- */
+.ashen-ambience { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.ashen-vig {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 38%, transparent 55%, rgba(5, 3, 1, 0.55) 100%),
+    linear-gradient(180deg, rgba(5, 3, 1, 0.35), transparent 22%, transparent 80%, rgba(5, 3, 1, 0.45));
+}
+.ashen-grain {
+  position: absolute; inset: 0; opacity: 0.12; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.ashen-embers { position: absolute; inset: 0; overflow: hidden; }
+.ashen-ember {
+  position: absolute; bottom: -4vh; border-radius: 50%;
+  background: radial-gradient(circle, var(--ember), transparent 70%);
+  opacity: 0; animation: ashenRise linear infinite;
+}
+@keyframes ashenRise {
+  0% { opacity: 0; transform: translate(0, 0); }
+  8% { opacity: 0.8; }
+  90% { opacity: 0.35; }
+  100% { opacity: 0; transform: translate(var(--drift, 20px), -108vh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ashen-ember { display: none; }
+}
+
+/* app content must sit above the fixed ambience layer */
+.App { position: relative; z-index: 1; }
+
+/* ---------- Navbar ---------- */
+.sticky, .navbar {
+  background: linear-gradient(180deg, rgba(10, 8, 6, 0.92), rgba(10, 8, 6, 0.85)) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+@media (max-width: 767px) {
+  .navbar { background-color: var(--ash-1) !important; }
+}
+.navbar-brand { color: var(--gold-bright) !important; }
+.navbar-nav .nav-link { color: var(--bone) !important; font-family: "Cinzel", serif; letter-spacing: 0.04em; }
+.navbar-nav .nav-item a::after { background: var(--gold) !important; }
+.navbar-toggler span { background-color: var(--gold-bright) !important; }
+
+/* ---------- Home ---------- */
+.home-section { background-image: var(--image-gradient), url(./Assets/home-bg.jpg) !important; }
+.home-content { color: var(--bone) !important; }
+.heading, .heading-name { color: var(--bone) !important; }
+.main-name { color: var(--gold-bright) !important; }
+.Typewriter__wrapper { color: var(--gold-bright) !important; }
+.Typewriter__cursor { color: var(--gold) !important; }
+.home-subtitle { color: var(--bone-dim) !important; font-style: italic; }
+.home-cta, .home-cta.btn-glow {
+  background: linear-gradient(100deg, var(--gold-bright), var(--gold)) !important;
+  border-color: transparent !important;
+  color: #1a1207 !important;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.06em;
+}
+
+.home-about-section { color: var(--bone) !important; }
+.home-about-description, .home-about-social { color: var(--bone) !important; }
+.home-about-body { color: var(--bone-dim) !important; }
+.home-social-icons {
+  background: var(--ash-1) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--gold-bright) !important;
+}
+.home-social-icons::before { background: var(--ash-2); }
+.home-social-icons:hover::before { box-shadow: 0 0 15px rgba(230, 189, 114, 0.5); }
+.home-social-icons:hover { color: var(--gold-bright) !important; box-shadow: 0 0 5px rgba(230, 189, 114, 0.4); text-shadow: none; }
+.icon-colour { color: var(--gold-bright) !important; }
+
+/* ---------- Footer (Covenants) ---------- */
+.footer { background-color: var(--ash-0) !important; border-top: 1px solid var(--line); }
+.footer h3 { color: var(--bone) !important; font-size: 0.85em; letter-spacing: 0.04em; }
+.footer-icon-link {
+  background: var(--ash-1) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--gold-bright) !important;
+}
+.footer-icon-link:hover { color: var(--bone) !important; background: var(--ash-2) !important; border-color: var(--gold-bright) !important; }
+.blockquote-footer { color: var(--gold) !important; }
+
+/* ---------- About ---------- */
+.about-section { color: var(--bone) !important; }
+.tech-icons {
+  color: var(--gold-bright) !important;
+  border: 1.7px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: none !important;
+}
+.tech-icons:hover { border-color: var(--gold-bright) !important; }
+.quote-card-view { color: var(--bone) !important; }
+.about-activity { color: var(--bone-dim); }
+
+/* ---------- Projects (Equipment) ---------- */
+.project-section { color: var(--bone) !important; }
+.project-heading { color: var(--bone) !important; }
+.project-intro { color: var(--bone-dim) !important; }
+.project-subheading { color: var(--gold-bright) !important; border-bottom: 1px solid var(--line); padding-bottom: 0.4rem; }
+.project-card-view {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.2)) !important;
+  border: 1px solid var(--line) !important;
+  border-top: 2px solid var(--gold) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+.project-card-view:hover {
+  border-color: var(--gold-bright) !important;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7) !important;
+}
+.project-card-view .card-title { color: var(--bone) !important; font-family: "Cinzel", serif; }
+.project-card-text { color: var(--bone-dim) !important; }
+.project-card-view .btn-primary,
+.btn-primary {
+  background: linear-gradient(100deg, var(--gold-bright), var(--gold)) !important;
+  border-color: transparent !important;
+  color: #1a1207 !important;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.04em;
+}
+.project-card-view .btn-primary:hover,
+.btn-primary:hover {
+  background: linear-gradient(100deg, #f0cf94, var(--gold-bright)) !important;
+}
+
+/* ---------- Resume (Records) ---------- */
+.resume-section { color: var(--bone) !important; }
+.resume .resume-item { border-left-color: var(--gold) !important; }
+.resume .resume-item::before { background: var(--ash-0) !important; border-color: var(--gold) !important; }
+.resume .resume-item .resume-title { background: rgba(168, 129, 61, 0.18) !important; color: var(--bone) !important; }

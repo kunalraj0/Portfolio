@@ -9,3 +9,18 @@ import '@testing-library/jest-dom';
 if (typeof global.DOMMatrix === 'undefined') {
   global.DOMMatrix = class DOMMatrix {};
 }
+
+// jsdom doesn't implement matchMedia; Ambience.jsx checks
+// prefers-reduced-motion, so give it a no-op stub that always reports "no".
+if (typeof window.matchMedia === 'undefined') {
+  window.matchMedia = (query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => false,
+  });
+}

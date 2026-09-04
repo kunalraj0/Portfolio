@@ -10,6 +10,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { BsMask } from "react-icons/bs";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -74,6 +75,16 @@ function NavBar() {
                   style={{ marginBottom: "2px" }}
                 />{" "}
                 Projects
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/effects"
+                onClick={() => updateExpanded(false)}
+              >
+                <BsMask style={{ marginBottom: "2px" }} /> Effects
               </Nav.Link>
             </Nav.Item>
 
